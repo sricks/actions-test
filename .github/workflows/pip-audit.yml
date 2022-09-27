@@ -10,5 +10,5 @@ jobs:
           inputs: ./app/server/requirements.txt ./app/server/dev-requirements.txt
           require-hashes: true
           ignore-vulns: |
-            PYSEC-2022-202
+            PYSEC-2022-203
 
