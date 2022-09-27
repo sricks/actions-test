@@ -1,0 +1,11 @@
+name: pip-audit
+on: [push]
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pypa/gh-action-pip-audit@v1.0.0
+        with:
+          inputs: ./app/server/requirements.txt ./app/server/dev-requirements.txt
+          no-deps: true
+
