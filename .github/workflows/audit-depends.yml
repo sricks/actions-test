@@ -1,0 +1,16 @@
+name: audit-depends
+on:
+    pull_request:
+        types: [opened, ready_for_review, reopened, synchronize]
+jobs:
+    audit:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: pypa/gh-action-pip-audit@v1.0.0
+              with:
+                  inputs: ./app/server/requirements.txt ./app/server/dev-requirements.txt
+                  require-hashes: true
+                  ignore-vulns: |
+                      PYSEC-2022-202
+                      PYSEC-2022-203
