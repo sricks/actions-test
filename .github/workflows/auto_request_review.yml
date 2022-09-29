@@ -1,0 +1,16 @@
+name: Auto Request Review
+
+on:
+    pull_request:
+        types: [opened, ready_for_review, reopened, synchronize]
+
+jobs:
+    auto-request-review:
+        name: Auto Request Review
+        runs-on: ubuntu-latest
+        steps:
+            - name: Request review based on files changes and/or groups the author belongs to
+              uses: larryprice/auto-request-review@cde0b5cccd40d6eaf7cb136e5e7a5c708c1dc397
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  config: .github/reviewers.yml
